@@ -2,8 +2,8 @@
 
 set -euo pipefail
 
-TOOL_NAME="NAME"
-REPO_URL="TOOL_GITHUB_URL"
+TOOL_NAME="hcloud-upload-image"
+REPO_URL="https://github.com/apricote/hcloud-upload-image"
 
 say() {
 	printf "[asdf-$TOOL_NAME]: %s\n" "$*"
@@ -57,7 +57,7 @@ get_arch() {
 
 	case "$platform" in
 		Darwin)
-			platform="darwin"
+			# platform="darwin"
 			case "$arch" in
 				aarch64 | arm64) arch="arm64" ;;
 				x86_64) arch="amd64" ;;
@@ -65,7 +65,7 @@ get_arch() {
 			esac
 			;;
 		Linux)
-			platform="linux"
+			# platform="linux"
 			case "$arch" in
 				aarch64 | arm64) arch="arm64" ;;
 				# armv7l | armv7) base_triple="armv7-unknown-linux" ;;
