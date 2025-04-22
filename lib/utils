@@ -68,8 +68,8 @@ get_arch() {
 			# platform="linux"
 			case "$arch" in
 				aarch64 | arm64) arch="arm64" ;;
-				# armv7l | armv7) base_triple="armv7-unknown-linux" ;;
-				x86_64) arch="amd64" ;;
+				# armv7l | armv7) arch="armv7" ;;
+				x86_64) ;;
 				*) fail "Incompatible linux architecture." ;;
 			esac
 			;;
