@@ -8,7 +8,9 @@ TAG_PREFIX="v"
 
 dl_link() {
     RELEASE_BASE_URL="$REPO_URL/releases/download/$TAG_PREFIX$ASDF_INSTALL_VERSION"
-    DL_FILE="${TOOL_NAME}_$(uname -s)_$(uname -m).tar.gz"
+    platform="$(uname -s)"
+    arch="$(uname -m)"
+    DL_FILE="${TOOL_NAME}_${platform}_${arch}.tar.gz"
 
     URL="$RELEASE_BASE_URL/$DL_FILE"
 
@@ -49,6 +51,8 @@ is_valid() {
 
 download() {
     url="$1"
+
+    ! is_valid "$url" && fail "INVALID URL: $url"
 
     if which curl > /dev/null; then
         curl -fsSL ${GITHUB_API_TOKEN:+-H "Authorization: token $GITHUB_API_TOKEN"} "$url"
