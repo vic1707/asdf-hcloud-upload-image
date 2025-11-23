@@ -8,7 +8,7 @@ TAG_PREFIX="v"
 
 dl_link() {
     RELEASE_BASE_URL="$REPO_URL/releases/download/$TAG_PREFIX$ASDF_INSTALL_VERSION"
-    DL_FILE="${TOOL_NAME}_${ASDF_INSTALL_VERSION}_$(uname -s)_$(uname -m).tar.gz"
+    DL_FILE="${TOOL_NAME}_$(uname -s)_$(uname -m).tar.gz"
 
     URL="$RELEASE_BASE_URL/$DL_FILE"
 
